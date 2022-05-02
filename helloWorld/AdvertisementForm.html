@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="//submit.form" onSubmit="return validateForm();">
+<div style="max-width: 400px;">
+</div>
+<div style="padding-bottom: 18px;font-size : 24px;">Advertising Estimate</div>
+<div style="padding-bottom: 18px;">Name / Company name<span style="color: red;"> *</span> 
+<input type="text" id="data_1" name="data_1" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Email<span style="color: red;"> *</span>  
+<input type="text" id="data_3" name="data_3" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Ad Start Date<span style="color: red;"> *</span> 
+<input type="text" id="data_4" name="data_4" style="max-width : 250px;" class="form-control"/>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">new Pikaday({ field: document.getElementById('data_4') });</script>
+<div style="padding-bottom: 18px;">Ad End Date<span style="color: red;"> *</span> 
+<input type="text" id="data_5" name="data_5" style="max-width : 250px;" class="form-control"/>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">new Pikaday({ field: document.getElementById('data_5') });</script>
+<div style="padding-bottom: 18px;">Advertising Size (pixels) <br>
+<span><input type="radio" id="data_6_0" name="data_6" value="Option1"/> 200px</span> 
+<span><input type="radio" id="data_6_1" name="data_6" value="Option2"/> 250px</span> 
+<span><input type="radio" id="data_6_2" name="data_6" value="Option3"/> 300px</span> 
+</div><br>
+<div style="padding-bottom: 18px;">Which sites would you like to advertise on?<br/>
+<span><input type="checkbox" id="data_7_0" name="data_7" value="Option1"/> Google</span>
+<span><input type="checkbox" id="data_7_1" name="data_7" value="Option2"/> FaceBook</span>
+<span><input type="checkbox" id="data_7_2" name="data_7" value="Option3"/> Twitter</span>
+</div>
+<div style="padding-bottom: 18px;">Website to be advertised<span style="color: red;"> *</span><br/>
+<input type="text" id="data_8" name="data_8" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Comments<br/>
+<textarea id="data_9" false name="data_9" style="max-width : 450px;" rows="6" class="form-control"></textarea>
+</div>
+<div style="padding-bottom: 18px;"><input name="skip_Submit" value="Submit" type="submit"/></div>
+<div>
+<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email">form to email</a></div>
+<!--  <script src="https://www.100forms.com/js/FORMKEY:JXJHUHXT3PY4/SEND:my@email.com" type="text/javascript"></script> -->
+<script src="www.gmail.com:my@email.com" type="text/javascript"></script>
+</div>
+</form>
+
+<script type="text/javascript">
+function validateForm() {
+if (isEmpty(document.getElementById('data_1').value.trim())) {
+alert('Name / Company name is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_3').value.trim())) {
+alert('Email is required!');
+return false;
+}
+if (!validateEmail(document.getElementById('data_3').value.trim())) {
+alert('Email must be a valid email address!');
+return false;
+}
+if (isEmpty(document.getElementById('data_4').value.trim())) {
+alert('Ad Start Date is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_5').value.trim())) {
+alert('Ad End Date is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_8').value.trim())) {
+alert('Website to be advertised is required!');
+return false;
+}
+return true;
+}
+function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+function validateEmail(email) {
+var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+return isEmpty(email) || re.test(email);
+}
+</script>
+</body>
+</html>
